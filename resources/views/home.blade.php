@@ -5,13 +5,7 @@
         <h1 class="text-4xl font-bold mb-6">Latest Chirps</h1>
 
         @forelse ($chirps as $chirp)
-            <div class="card bg-base-100 shadow mb-4">
-                <div class="card-body">
-                    <p class="font-bold">{{ $chirp->user ? $chirp->user->name : 'Anonymous' }}</p>
-                    <p>{{ $chirp->message }}</p>
-                    <p class="text-sm text-gray-500">{{ $chirp->created_at->diffForHumans() }}</p>
-                </div>
-            </div>
+            <x-chirp :chirp="$chirp" />
         @empty
             <div class="card bg-base-100 shadow mb-4">
                 <div class="card-body">
